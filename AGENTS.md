@@ -1,43 +1,17 @@
-# Comicwise — Comic Streaming
+# comicwise — AGENTS.md
 
-## Architecture
+**Canonical reference:** See `../../AGENTS.md` for workspace-wide rules, conventions, and workflows.
 
-- **Type:** Next.js comic streaming platform
-- **Pattern:** App Router with Prisma ORM, Stripe subscriptions
-- **Reference:** [Workflow Analysis](docs/Project_Architecture/Workflow_Analysis.md), [Exemplars](docs/Project_Architecture/exemplars.md)
+This file contains only comicwise-specific overrides and additions.
 
-Next.js 15 + Prisma + Stripe. Digital comic storefront with subscription management, user auth, and image-optimized content delivery.
+## Project-Specific Commands
 
-## Stack
+See `package.json` or `README.md` for build/test/lint commands specific to this project.
 
-- **Frontend:** Next.js 15, TypeScript (strict), App Router
-- **Database:** PostgreSQL via Prisma
-- **Auth:** NextAuth.js
-- **Payments:** Stripe (subscriptions)
-- **Deploy:** Vercel
-- **Package Manager:** pnpm (`pnpm-lock.yaml`)
+## Project-Specific Conventions
 
-## Commands
+Add any conventions that differ from the workspace root here.
 
-```bash
-bun run dev
-bun run build
-bun run lint
-bunx prisma generate
-bunx prisma db push
-bunx prisma studio
-```
+---
 
-## Conventions
-
-- API routes in `src/app/api/`
-- Use Next.js Image optimization for comic assets
-- Stripe webhooks for subscription lifecycle events
-- `.env.local` — never commit; Stripe keys required
-- Node 18+ required
-
-## Notes
-
-- Uses `pnpm` as package manager
-- Prisma for schema management and migrations
-- Subscription model via Stripe recurring payments
+*For all shared rules, toolchain, routing, and conventions, see `../../AGENTS.md`.*
