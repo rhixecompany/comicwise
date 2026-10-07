@@ -178,3 +178,5 @@ When context files don't provide specific guidance:
 - Respect existing architectural boundaries without exception
 - Match the style and patterns of surrounding code
 - When in doubt, prioritize consistency with existing code over external best practices
+
+- For new or changed requests, follow the clarification and timestamped artifact protocol in ../../AGENTS.md.

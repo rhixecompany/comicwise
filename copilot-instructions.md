@@ -11,3 +11,5 @@ cd C:/Users/Alexa/Desktop/SandBox/projects/comicwise
 ```
 
 *All conventions, workflows, and rules are in `../../AGENTS.md`.*
+
+- For new or changed requests, follow the clarification and timestamped artifact protocol in ../../AGENTS.md.

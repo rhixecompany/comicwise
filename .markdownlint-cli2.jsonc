@@ -24,7 +24,7 @@
     ".venv/**",
     "myvenv/**",
     "docs/reports/**",
-    ".hermes/archived-prompt-templates/**",
+    "$HERMES_HOME/archived-prompt-templates/**",
     ".vscode/**",
     "**/__pycache__/**",
     "**/dist/**",

@@ -9,6 +9,7 @@ import { revalidatePath } from "next/cache.js";
 
 import { auth } from "@/auth";
 import { userPreferenceDal } from "@/dal/user-preferences-dal";
+import { pushPreferenceFacts } from "@/lib/supermemory";
 
 import type { ActionResult } from "@/types/actions-types";
 import type { UpdateUserPreferenceInput, UserPreference } from "@/types/user-preferences";
@@ -57,6 +58,16 @@ export async function updateUserPreferencesAction(
   } catch (error) {
     console.error("[updateUserPreferencesAction]", error);
     return { ok: false, error: "Failed to update preferences" };
+  } finally {
+    // Best effort: mirror changed facts to Supermemory (item 3). Never
+    // throws, no-ops without SUPERMEMORY_API_KEY — DB write already won.
+    if (session?.user?.id) {
+      void pushPreferenceFacts(session.user.id, input).then((r) => {
+        if (!r.ok) {
+          console.error("[supermemory] pref mirror failed:", r.error);
+        }
+      });
+    }
   }
 }
 
